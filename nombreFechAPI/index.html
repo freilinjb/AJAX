@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>JavaScript Sandbox</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-primary">
+
+    <div class="container my-5 rounded sinpadding">
+        <div class="row justify-content-center rounded">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h1 class="text-center text-white">Generador de Nombres</h1>
+                <div class="cuadro bg-white">
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <form action="" id="generar-nombre">
+                            <div class="form-group">
+                                <label for="origen">Origen del Nombre:</label>
+                                <select id="origen" class="form-control" name="">
+                                    <option selected disabled value=''>-- Seleccione --</option>
+                                    <option value="argentina">Argentina</option>
+                                    <option value="brazil">Brasil</option>
+                                    <option value="colombia">Colombia</option>
+                                    <option value="costa rica">Costa Rica</option>
+                                    <option value="france">Francia</option>
+                                    <option value="italy">Italia</option>
+                                    <option value="mexico">Mexico</option>
+                                    <option value="portugal">Portugal</option>
+                                    <option value="spain">España</option>
+                                    <option>Text</option>
+                                    <option>Text</option>
+                                </select>
+                                <small id="helpId" style="display: none;" class="text-muted">Help text</small>
+    
+                            </div>
+                            <div class="form-group">
+                                <label for="genero">Genero:</label>
+                                <select id="genero" class="form-control" name="">
+                                    <option selected disabled value=''>-- Seleccione --</option>
+                                    <option value="male">Hombre</option>
+                                    <option value="femele">Mujer</option>
+                                </select>
+                                <small id="helpId" style="display: none;" class="text-muted">Help text</small>
+    
+                            </div>
+                            <div class="form-group">
+                              <label for="">Numero a Generar</label>
+                              <input type="number" name="numero" id="numero" min="5" max="20" class="form-control" placeholder="" aria-describedby="helpId" value="5">
+                              <small id="helpId" style="display: none;" class="text-muted">Help text</small>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-lg" value="Generar">
+                        </form>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        <div id="resultado"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+<script src="app.js"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
+</body>
+
+</html>

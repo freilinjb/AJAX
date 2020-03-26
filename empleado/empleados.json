@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "nombre": "Freilin Jose",
+        "empresa": "EasyWebDev",
+        "trabajo": "Desarrollador Web"
+    },
+    {
+        "id": 2,
+        "nombre": "Juan Manuel",
+        "empresa": "EasyWebDev",
+        "trabajo": "Backend"
+    },
+    {
+        "id": 3,
+        "nombre": "Guillermo Mendoza",
+        "empresa": "EasyWebDev",
+        "trabajo": "Desarrollador Web"
+    },
+    {
+        "id": 4,
+        "nombre": "Frank Ruiz",
+        "empresa": "EasyWebDev",
+        "trabajo": "Ejecutivo de Ventas"
+    },
+    {
+        "id": 5,
+        "nombre": "Cristian Perez",
+        "empresa": "EasyWebDev",
+        "trabajo": "Aplicaciones Móviles"
+    }
+]
