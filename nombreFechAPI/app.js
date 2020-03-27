@@ -6,15 +6,135 @@ document.addEventListener('DOMContentLoaded', function() {
 function cargarNombres(e) {
     e.preventDefault();
 
-    const origen = document.getElementById('origen');    
-    const origenSeleccionado = origen.options[origen.selectedIndex].value;
+    const nombre = document.getElementById('nombre').value;
 
-    const genero = document.getElementById('genero');    
-    const generoSeleccionado = genero.options[genero.selectedIndex].value;
+    const cantidad =document.getElementById('cantidad').value;
 
-    console.log(origenSeleccionado);
-    console.log(generoSeleccionado);
-    
+    let url = '';
+    url += 'https://api.jikan.moe/v3/search/';
+    // url += 'https://api.jikan.moe/v3/search/anime?q=goku&limit=16';
+
+    //Si hay origen agrergar URL
+    if(nombre !== '') {
+        url += `anime?q=${nombre}&`;
+    }
+
+    //Si hay genero agrergar URL
+    if(cantidad !== '') {
+        url += `limit=${cantidad}`;
+    }
+
+    console.log('Url: ', url);
+
+    const xhr = new XMLHttpRequest();
+
+    xhr.open('GET', url, true);
+
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const animes = JSON.parse(this.responseText);
+
+            let htmlTemplate = '';
+            for(let i = 0; i < animes.results["length"]; i++) {
+                htmlTemplate += `<div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+
+                        <!-- Card image -->
+                        <div class="view overlay">
+                        <img class="card-img-top" src="${animes.results[i].image_url}"
+                            alt="${animes.results[i].title}">
+                        <a href="#!">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                        </div>
+
+                        <!-- Card content -->
+                        <div class="card-body">
+
+                        <!-- Title -->
+                        <h4 class="card-title">${animes.results[i].title}</h4>
+                        <!-- Text -->
+                        <p class="card-text">${animes.results[i].synopsis}</p>
+                        <!-- Button -->
+                        <a href="${animes.results[i].url}" class="btn btn-primary">Button</a>
+
+                        </div>
+                    </div>
+                </div>`;
+            }
+
+
+
+            // for(let i in animes) {
+            //     htmlTemplate += `<div class="col-3">
+            //             <div class="card">
+
+            //             <!-- Card image -->
+            //             <div class="view overlay">
+            //              <img class="card-img-top" src="${animes.results[i].image_url}"
+            //                 alt="${animes.results[i].title}">
+            //             <a href="#!">
+            //                 <div class="mask rgba-white-slight"></div>
+            //             </a>
+            //             </div>
+
+            //             <!-- Card content -->
+            //             <div class="card-body">
+
+            //             <!-- Title -->
+            //             <h4 class="card-title">${animes.results[i].title}</h4>
+            //             <!-- Text -->
+            //             <p class="card-text">${animes.results[i].synopsis}</p>
+            //             <!-- Button -->
+            //             <a href="${animes.results[i].url}" class="btn btn-primary">Button</a>
+
+            //             </div>
+
+            //         </div>
+
+            //     </div>`;
+            // }
+
+            // animes.forEach(function(anime) {
+            //         console.log(anime);
+            //         let i = 0
+            //     htmlAnime += `<div class="col-3">
+            //             <div class="card">
+
+            //             <!-- Card image -->
+            //             <div class="view overlay">
+            //             <img class="card-img-top" src="${anime.results.image_url}"
+            //                 alt="${anime.results[i].title}">
+            //             <a href="#!">
+            //                 <div class="mask rgba-white-slight"></div>
+            //             </a>
+            //             </div>
+
+            //             <!-- Card content -->
+            //             <div class="card-body">
+
+            //             <!-- Title -->
+            //             <h4 class="card-title">${anime.results.title}</h4>
+            //             <!-- Text -->
+            //             <p class="card-text">${anime.results.synopsis}</p>
+            //             <!-- Button -->
+            //             <a href="#" class="btn btn-primary">Button</a>
+
+            //             </div>
+
+            //         </div>
+
+            //     </div>`;
+            // });
+            document.getElementById('resultado').innerHTML = htmlTemplate;
+            
+            console.log(document.getElementById('resultados'));
+            
+        }
+    }
+
+    xhr.send();
+
 }
 
 function initApp() {
@@ -34,12 +154,15 @@ function initApp() {
           if (form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
+          } else {
+            // createAccount();
           }
           form.classList.add('was-validated');
         }, false);
       });
     }, false);
   })();
+
 
 function createAccount() {
     alert('test');
