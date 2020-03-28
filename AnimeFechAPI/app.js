@@ -37,7 +37,7 @@ function cargarNombres(e) {
             let htmlTemplate = '';
             for(let i = 0; i < animes.results["length"]; i++) {
                 htmlTemplate += `<div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card">
+                        <div class="card m-2">
 
                         <!-- Card image -->
                         <div class="view overlay">
